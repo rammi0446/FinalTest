@@ -137,7 +137,7 @@ function displayResults( tx, results ){
           "<p> Name: "
         +   results.rows.item(i).name
         + "<br>"
-        + "Dept: "
+        + "available to hire: "
         +  "Yes"
         + "</p>"; 
      }
@@ -147,7 +147,7 @@ function displayResults( tx, results ){
           "<p> Name: "
         +   results.rows.item(i).name
         + "<br>"
-        + "Dept: "
+        + "available to hire: "
         +  "No"
         + "</p>"; 
      }
