@@ -3,13 +3,16 @@ document.getElementById("show").addEventListener("click",showData);
 document.getElementById("rescue").addEventListener("click",rescue);
 document.addEventListener("deviceReady",connectToDatabase);
 
-
+//=======vibration on rescue button click
 function rescue()
 {
     navigator.vibrate(2000);
 }
+
+
+
 var db = null;
-//open a connection with database
+//======open a connection with database========
 
 function connectToDatabase() {
   console.log("device is ready - connecting to database");
@@ -37,7 +40,7 @@ function connectToDatabase() {
 
 
 
-//create aa table
+//==========create aa table=============
 
 db.transaction(
         function(tx){
@@ -56,11 +59,7 @@ db.transaction(
         onReadyTransaction
     )
     }
-//write sql query
-
-
-
-//
+//========save data in the table=======================
 
 function saveData(){
 console.log("save button clicked");
@@ -83,7 +82,7 @@ db.transaction(
 
 }
 
-//show ======================
+//=================display data ======================
 function showData(){
 document.getElementById("resultsSection").innerHTML = "";
 console.log("show button clicked");
@@ -115,6 +114,8 @@ function onSuccessExecuteSql( tx, results ){
 function onError( err ){
   console.log( err )
 }
+
+//=====display function=========
 function displayResults( tx, results ){
         
         if(results.rows.length == 0) {
@@ -124,13 +125,6 @@ function displayResults( tx, results ){
         
         var row = "";
         for(var i=0; i<results.rows.length; i++) {
-      // document.getElementById("resultsSection").innerHTML +=
-      //     "<p> Name: "
-      //   +   results.rows.item(i).name
-      //   + "<br>"
-      //   + "Dept: "
-      //   +   results.rows.item(i).available
-      //   + "</p>";
      if(results.rows.item(i).available == 1)
      {
        document.getElementById("resultsSection").innerHTML +=
